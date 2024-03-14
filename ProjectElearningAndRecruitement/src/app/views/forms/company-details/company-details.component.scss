@@ -1,0 +1,42 @@
+/* company-details.component.scss */
+
+.company-details-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .company-details-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 400px;
+  }
+  
+  .company-details-header {
+    text-align: center;
+  }
+  
+  .company-details-header h2 {
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .company-details-body {
+    margin-top: 20px;
+  }
+  
+  .company-info p {
+    margin-bottom: 10px;
+  }
+  
+  .company-info p strong {
+    font-weight: bold;
+  }
+  
+  .company-info p a {
+    color: #007bff;
+  }
+  

@@ -1,0 +1,100 @@
+<div class="container">
+  <c-row>
+    <c-col xs="12">
+      <div class="card">
+        <h1>Posts List</h1>
+        <hr>
+        <div class="card-body">
+          <div class="right">
+          </div>
+          <hr>
+          <div class="table-responsive">
+            <table class="table table-bordered table-responsive-sm table-responsive-md table-responsive-lg">
+              <thead>
+                <tr>
+                  <th scope="col">Title</th>
+                  <th scope="col">Requirements</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Duration</th>
+                  <th scope="col">Start Date</th>
+                  <th scope="col">End Date</th>
+                  <th scope="col" class="text-center">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <ng-container>
+                  <tr *ngFor="let post of posts">
+                    <td> {{post.title}} </td>
+                    <td> {{post.requirements}} </td>
+                    <td> {{post.description}} </td>
+                    <td> {{post.duration}} </td>
+                    <td> {{post.startDate}} </td>
+                    <td> {{post.endDate}} </td>
+                    <td class="text-center">
+                      <button class="delete-button" (click)="deletePost(post.id)">Delete</button>
+                      <button class="edit-button" (click)="openEditPostDialog(post.id)">Edit</button>
+                      <button class="action-button" (click)="openAddTestDialog(post.id)">Add new Test</button>
+                    </td>
+                  </tr>
+                </ng-container>
+                <ng-template #noCourses>
+                  <tr>
+                    <td colspan="6" class="text-center">No company available</td>
+                  </tr>
+                </ng-template>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </c-col>
+  </c-row>
+
+  <!-- Edit Post Dialog -->
+  <div id="postDialog" class="dialog">
+    <div class="dialog-content">
+      <span class="close" (click)="closePostDialog()">&times;</span>
+      <h2>Edit Form Post</h2>
+      <label for="postTitle">Title:</label>
+      <input type="text" id="postTitle" [(ngModel)]="newPost.title" />
+      <label for="postRequirements">Requirements:</label>
+      <input type="text" id="postRequirements" [(ngModel)]="newPost.requirements" />
+      <label for="postDuration">Duration:</label>
+      <input type="number" id="postDuration" [(ngModel)]="newPost.duration" />
+      <label for="postDescription">Description:</label>
+      <textarea type="text" id="postDescription" [(ngModel)]="newPost.description"></textarea>
+      <label for="postStartDate">Start Date:</label>
+      <input type="date" id="postStartDate" [(ngModel)]="newPost.startDate" />
+      <label for="postEndDate">End Date:</label>
+      <input type="date" id="postEndDate" [(ngModel)]="newPost.endDate" />
+      <button class="action-button" (click)="editPost()">Update Post</button>
+    </div>
+  </div>  
+
+  <!-- Add Test Dialog -->
+  <div id="testDialog" class="dialog">
+    <div class="dialog-content">
+      <span class="close" (click)="closeTestDialog()">&times;</span>
+      <h2>Add Test Form</h2>
+      <label for="testtPrenomEt">prenomEt:</label>
+      <input type="text" id="testPrenomEt" [(ngModel)]="newTest.prenomEt" />
+      <label for="testTitle">Title:</label>
+      <input type="text" id="testTitle" [(ngModel)]="newTest.title" />
+      <label for="testDuration">Duration:</label>
+      <input type="number" id="testDuration" [(ngModel)]="newTest.duration" />
+      <label for="testDescription">Description:</label>
+      <textarea type="text" id="testDescription" [(ngModel)]="newTest.description"></textarea>
+      <label for="testStart_time">Start Time:</label>
+      <input type="date" id="testStart_time" [(ngModel)]="newTest.start_time" />
+      <label for="testEnd_time">End Time:</label>
+      <input type="date" id="testEnd_time" [(ngModel)]="newTest.end_time" />
+      <button class="action-button" (click)="saveTest()">Save Test</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+ 
+

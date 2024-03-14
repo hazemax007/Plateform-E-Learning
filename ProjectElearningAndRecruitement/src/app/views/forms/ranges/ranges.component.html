@@ -1,0 +1,16 @@
+<!-- ranges.component.html -->
+
+<input type="text" [(ngModel)]="searchQuery" (input)="filterCompanies()" placeholder="Search..." class="search-input">
+
+<div class="company-list">
+  <div class="company-card" *ngFor="let company of filteredCompanies" >
+    <div (click)="navigateToCompanyDetails(company.id)">
+      <img src="../../../../assets/images/company.jpg" alt="Company Logo">
+    <div class="company-details">
+      <h2>{{ company.name }}</h2>
+      <p>{{ company.location }}</p>
+      <p>{{ company.industry }}</p>
+    </div>
+    </div>
+  </div>
+</div>

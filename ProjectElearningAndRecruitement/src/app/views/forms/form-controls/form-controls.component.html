@@ -1,0 +1,91 @@
+<div class="container">
+  <c-row>
+    <c-col xs="12">
+      <div class="card">
+        <h1>Companies List</h1>
+        <hr>
+        <div class="card-body">
+          <div class="right">
+            <button class="action-button" (click)="openAddCompanyDialog()">Add new Company</button>
+          </div>
+          <hr>
+          <div class="table-responsive">
+            <table class="table table-bordered table-responsive-sm table-responsive-md table-responsive-lg">
+              <thead>
+                <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">Location</th>
+                  <th scope="col">Industry</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Logo</th>
+                  <th scope="col" class="text-center">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <ng-container>
+                  <tr *ngFor="let company of companies">
+                    <td> {{company.name}} </td>
+                    <td> {{company.location}} </td>
+                    <td> {{company.industry}} </td>
+                    <td> {{company.description}} </td>
+                    <td> {{company.logo}} </td>
+                    <td class="text-center">
+                      <button class="delete-button" (click)="deleteCompany(company.id)">Delete</button>
+                      <button class="edit-button" (click)="openEditCompanyDialog(company.id)">Edit</button>
+                      <button class="action-button" (click)="openAddPostDialog(company.id)">Add new Post</button>
+                    </td>
+                  </tr>
+                </ng-container>
+                <ng-template #noCourses>
+                  <tr>
+                    <td colspan="6" class="text-center">No company available</td>
+                  </tr>
+                </ng-template>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </c-col>
+  </c-row>
+
+  <!-- Add/Edit Company Dialog -->
+  <div id="companyDialog" class="dialog">
+    <div class="dialog-content">
+      <span class="close" (click)="closeCompanyDialog()">&times;</span>
+      <h2>{{ editingCompany ? 'Edit Company' : 'Add Company' }}</h2>
+      <label for="companyName">Name:</label>
+      <input type="text" id="companyName" [(ngModel)]="newCompany.name" />
+      <label for="companyLocation">Location:</label>
+      <input type="text" id="companyLocation" [(ngModel)]="newCompany.location" />
+      <label for="companyIndustry">Industry:</label>
+      <input type="text" id="companyIndustry" [(ngModel)]="newCompany.industry" />
+      <label for="companyDescription">Description:</label>
+      <textarea type="text" id="companyDescription" [(ngModel)]="newCompany.description"></textarea>
+      <label for="companyLogo">Logo:</label>
+      <input type="text" id="companyLogo" [(ngModel)]="newCompany.logo" />
+      <button class="action-button" (click)="saveCompany()">{{ editingCompany ? 'Update' : 'Save' }} Company</button>
+    </div>
+  </div>
+
+  <!-- Add Post Dialog -->
+  <div id="postDialog" class="dialog">
+    <div class="dialog-content">
+      <span class="close" (click)="closePostDialog()">&times;</span>
+      <h2>Add Post Form</h2>
+      <label for="postTitle">Title:</label>
+      <input type="text" id="postTitle" [(ngModel)]="newPost.title" />
+      <label for="postRequirements">Requirements:</label>
+      <input type="text" id="postRequirements" [(ngModel)]="newPost.requirements" />
+      <label for="postDuration">Duration:</label>
+      <input type="number" id="postDuration" [(ngModel)]="newPost.duration" />
+      <label for="postDescription">Description:</label>
+      <textarea type="text" id="postDescription" [(ngModel)]="newPost.description"></textarea>
+      <label for="postStartDate">Start Date:</label>
+      <input type="date" id="postStartDate" [(ngModel)]="newPost.startDate" />
+      <label for="postEndDate">End Date:</label>
+      <input type="date" id="postEndDate" [(ngModel)]="newPost.endDate" />
+      <button class="action-button" (click)="savePost(postCompany)">Save Post</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,53 @@
+<c-row>
+  <c-col xs="12">
+    <div class="card">
+      <h1>Liste des Cours</h1>
+      <hr>
+      <div class="card-body">
+        <div class="right">
+          <a class="btn btn-outline-success">
+            <i class="icon-add_box"></i> Ajout
+          </a>
+          <hr>
+        </div>
+        <hr>
+        <div class="table-responsive">
+          <table class="table table-bordered table-responsive-sm table-responsive-md table-responsive-lg">
+            <thead>
+              <tr>
+                <th scope="col">Titre</th>
+                <th scope="col">Description</th>
+                <th scope="col">Date de début</th>
+                <th scope="col">Date de fin</th>
+                <th scope="col">Prix</th>
+                <th scope="col" class="text-center">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <ng-container >
+                <tr>
+                  <td>fghfgh</td>
+                  <td>fghfhfg</td>
+                  <td>fghfh</td>
+                  <td>fgthfgh</td>
+                  <td>rftyhrty</td>
+                  <td class="text-center">
+                    <button  class="btn btn-danger"  type="submit">Delete</button>
+                    <button class="btn btn-primary"   type="submit">Mettre à jour</button>
+                    
+                  </td>
+    
+                </tr>
+              </ng-container>
+              <ng-template #noCourses>
+                <tr>
+                  <td colspan="6" class="text-center">Aucun cours disponible.</td>
+                </tr>
+              </ng-template>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </c-col>
+</c-row>
